@@ -19,10 +19,12 @@ pipeline {
         stage('Establish SSH Connection'){
             steps {
                 echo 'Establishing SSH connection...'
-                remote.user = env.SERVER_CREDS_USR
-                remote.password = env.SERVER_CREDS_PSW
-
-                sshCommand(remote: remote, command: 'echo "SSH connection establised on jenkins server" >> /home/ubuntu/output.txt')
+                script {
+                    remote.user = env.SERVER_CREDS_USR
+                    remote.password = env.SERVER_CREDS_PSW
+                    sshCommand(remote: remote, command: 'echo "SSH connection establised on jenkins server" >> /home/ubuntu/output.txt')
+                }
+            
             }
         }
     }
