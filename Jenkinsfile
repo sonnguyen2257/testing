@@ -22,6 +22,9 @@ pipeline {
                 script {
                     remote.user = env.SERVER_CREDS_USR
                     remote.password = env.SERVER_CREDS_PSW
+                    sshCommand (remote: remote,
+                                command: "apt update && apt install git"
+                                )
                     sshCommand(remote: remote, 
                                 command: 'cd /home/ubuntu && git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git"'
                                 )
