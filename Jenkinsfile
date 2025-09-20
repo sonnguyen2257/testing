@@ -13,6 +13,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting build...'
+                apt update && apt install git rsync -y
+                git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git"
             }
         }
 
@@ -23,11 +25,12 @@ pipeline {
                     remote.user = env.SERVER_CREDS_USR
                     remote.password = env.SERVER_CREDS_PSW
                     sshCommand (remote: remote,
-                                command: "apt update && apt install git -y"
+                                command: "apt update && apt install git rsync -y"
                                 )
-                    sshCommand(remote: remote, 
-                                command: 'cd /home/ubuntu && git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git"'
-                                )
+
+                    sh """
+                        rsync -avz -e "sshpass -p '${env.SERVER_CREDS_PSW}' ssh -o StrictHostKeyChecking=no" ./COSC2767-RMIT-Store ${env.SERVER_CREDS_USR}@${remote.host}:/home/ubuntu
+                    """
                 }
             
             }
