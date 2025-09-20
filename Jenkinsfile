@@ -26,7 +26,7 @@ pipeline {
                                 command: """
                                     apt update &&
                                     apt install git -y &&
-                                    rm /home/ubuntu/COSC2767-RMIT-Store -rf &&
+                                    rm /home/ubuntu/* -rf &&
                                     cd /home/ubuntu &&
                                     git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git" &&
                                     echo 'Setup complete'
