@@ -14,7 +14,10 @@ pipeline {
             steps {
                 echo 'Starting build...'
                 // sh 'apt-get update && apt-get install git rsync -y'
-                sh 'git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git"'
+                sh """
+                    pwd
+                    git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git"
+                """
             }
         }
 
