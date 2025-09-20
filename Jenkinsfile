@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting build...'
-                sh 'apt update && apt install git rsync -y'
+                sh 'apt update && apt-get install git rsync -y'
                 sh 'git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git"'
             }
         }
