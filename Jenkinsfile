@@ -6,7 +6,7 @@ remote.allowAnyHosts = true
 pipeline {
     agent any
 
-    enviroment {
+    environment {
         SERVER_CREDS = credentials('ubuntu-server')
     }
     stages {
