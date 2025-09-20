@@ -25,7 +25,7 @@ pipeline {
                     sshCommand (remote: remote,
                                 command: """
                                     apt update &&
-                                    apt install git -y &&
+                                    apt install git npm -y &&
                                     rm /home/ubuntu/* -rf &&
                                     cd /home/ubuntu &&
                                     git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git" &&
