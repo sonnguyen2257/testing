@@ -32,7 +32,7 @@ pipeline {
                                 )
 
                     sh """
-                        rsync -avz -e "sshpass -p '${env.SERVER_CREDS_PSW}' ssh -o StrictHostKeyChecking=no" /var/jenkins_home/workspace/testing/COSC2767-RMIT-Store ${env.SERVER_CREDS_USR}@${remote.host}:/home/ubuntu/
+                        rsync -avz -e "sshpass -p '${env.SERVER_CREDS_PSW}' ssh -o StrictHostKeyChecking=no" /var/jenkins_home/workspace/testing/COSC2767-RMIT-Store ${env.SERVER_CREDS_USR}@${remote.host}:/home/ubuntu
                     """
                 }
             
