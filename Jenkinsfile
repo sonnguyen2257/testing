@@ -29,6 +29,9 @@ pipeline {
                                     rm /home/ubuntu/* -rf &&
                                     cd /home/ubuntu &&
                                     git clone "https://github.com/TomHuynhSG/COSC2767-RMIT-Store.git" &&
+                                    cd /home/ubuntu/COSC2767-RMIT-Store/client &&
+                                    npm install &&
+                                    npm run build &&
                                     echo 'Setup complete'
                                 """.stripIndent().trim()
                                 )
